@@ -98,7 +98,7 @@ class _ProfileState extends State<Profile> {
                   onPressed: () {},
                 ),
               ),
-              SizedBox(height: 50.0),
+              SizedBox(height: 55.0),
               ElevatedButton(
                   style: ButtonStyle(
                       minimumSize: MaterialStatePropertyAll(Size(363, 50)),
