@@ -55,6 +55,7 @@ class _NewTaskState extends State<NewTask> {
               SizedBox(
                 height: 150,
                 child: TextField(
+                  maxLines: 4,
                   style: TextStyle(color: Colors.white70),
                   decoration: InputDecoration(
                     filled: true,

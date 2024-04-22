@@ -1,9 +1,12 @@
 import 'package:day_task/screens/profile.dart';
-import 'package:day_task/screens/schedule_screen.dart';
+import 'package:day_task/screens/notifications_screen.dart';
+// import 'package:day_task/screens/schedule_screen.dart';
 import 'package:day_task/screens/task_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
+// import 'notifications_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,9 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Color.fromRGBO(254, 211, 106, 1.0),
                         fontSize: 13),
                   ),
-                  subtitle: Text(
-                    "Rohit Sharma",
-                    style: TextStyle(fontSize: 20.0, color: Colors.white),
+                  subtitle: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Profile(),));
+                    },
+                    child: Text(
+                      "Rohit Sharma",
+                      style: TextStyle(fontSize: 20.0, color: Colors.white),
+                    ),
                   ),
                   trailing: GestureDetector(
                     onTap: () {
@@ -760,7 +768,7 @@ class _HomeScreenState extends State<HomeScreen> {
         // selectedIconTheme: CupertinoIconThemeData(color: Color(0xffFED36A)),
         selectedIconTheme: IconThemeData(color: Color(0xffFED36A)),
         type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             backgroundColor: Color(0xff263238),
             icon: Icon(
@@ -782,14 +790,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               label: "Add"),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.chat,
-                color: Color(0xff617D8A),
-              ),
-              label: "Chat"),
+              icon: Icon(Icons.chat, color: Color(0xff617D8A)), label: "Chat"),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.notifications,
+              icon: IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => NotificationScreen()));
+                },
+                icon: Icon(Icons.notifications),
                 color: Color(0xff617D8A),
               ),
               label: "Notification"),
